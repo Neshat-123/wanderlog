@@ -1,3 +1,633 @@
+/* =========================================
+   RESET & GLOBAL STYLES
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background-color: lightblue;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #17212b;
+    background-color: #ffffff;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+body > header {
+    border-bottom: 1px solid #e5e7eb;
+    background-color: #ffffff;
+}
+
+body > header nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    padding: 0 24px;
+}
+
+body > header nav > a:first-child {
+    font-size: 26px;
+    font-weight: 700;
+    color: #174a45;
+}
+
+body > header nav ul {
+    display: flex;
+    gap: 30px;
+    margin-right: auto;
+}
+
+body > header nav ul a {
+    color: #4b5563;
+    font-weight: 500;
+}
+
+body > header nav ul a:hover {
+    color: #174a45;
+}
+
+body > header nav > div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+body > header nav > div a:first-child {
+    color: #374151;
+    font-weight: 500;
+}
+
+body > header nav > div a:last-child {
+    background-color: #174a45;
+    color: white;
+
+    padding: 10px 20px;
+    border-radius: 8px;
+
+    font-weight: 600;
+}
+
+body > header nav > div a:last-child:hover {
+    background-color: #103a36;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+main > section {
+    padding: 80px 24px;
+}
+
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+#plan {
+    text-align: center;
+    background-color: #f5f8f7;
+
+    margin-top: 0;
+    max-width: none;
+    padding: 90px 24px;
+}
+
+#plan > header {
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+#hero-heading {
+    font-size: 52px;
+    line-height: 1.15;
+    margin-bottom: 18px;
+    color: #17212b;
+}
+
+#plan > header p {
+    font-size: 20px;
+    color: #667085;
+}
+
+
+/* =========================================
+   PLANNER FORM
+========================================= */
+
+#plan form {
+    max-width: 1000px;
+    margin: 0 auto;
+
+    background-color: #ffffff;
+    border: 1px solid #e1e5e4;
+    border-radius: 16px;
+
+    padding: 22px;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr auto;
+    gap: 14px;
+
+    text-align: left;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+#plan form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+#plan label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+#plan input {
+    width: 100%;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    padding: 12px 13px;
+
+    background-color: #ffffff;
+    color: #17212b;
+
+    outline: none;
+}
+
+#plan input:focus {
+    border-color: #174a45;
+}
+
+#plan button {
+    align-self: end;
+
+    border: none;
+    border-radius: 8px;
+
+    padding: 12px 20px;
+
+    background-color: #174a45;
+    color: #ffffff;
+
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#plan button:hover {
+    background-color: #103a36;
+}
+
+
+/* =========================================
+   SECTION HEADERS
+========================================= */
+
+#trips > header,
+#explore > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 35px;
+}
+
+#trips h2,
+#explore h2,
+#cta-heading {
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+#trips > header a {
+    color: #174a45;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   YOUR TRIP CARD
+========================================= */
+
+#trips > article {
+    display: grid;
+    grid-template-columns: 40% 60%;
+
+    overflow: hidden;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e1e5e4;
+    border-radius: 16px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+#trips figure {
+    height: 100%;
+    min-height: 350px;
+    position: relative;
+}
+
+#trips figure img {
+    height: 100%;
+    object-fit: cover;
+}
+
+#trips figure figcaption {
+    position: absolute;
+    bottom: 18px;
+    left: 18px;
+
+    background-color: rgba(0, 0, 0, 0.65);
+    color: #ffffff;
+
+    padding: 7px 12px;
+    border-radius: 6px;
+
+    font-size: 14px;
+}
+
+
+/* Trip information */
+
+#trips > article > div {
+    padding: 35px;
+}
+
+#trips h3 {
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+
+#trips > article > div > header p {
+    color: #667085;
+}
+
+#trips > article > div > p {
+    margin-top: 15px;
+    color: #4b5563;
+}
+
+
+/* =========================================
+   ITINERARY
+========================================= */
+
+#trips section {
+    margin-top: 30px;
+}
+
+#trips h4 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#trips ol {
+    border-left: 2px solid #dce5e2;
+    padding-left: 25px;
+}
+
+#trips ol > li {
+    margin-bottom: 20px;
+}
+
+#trips h5 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#trips ol ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+#trips ol ul li {
+    background-color: #eef5f3;
+    color: #174a45;
+
+    padding: 6px 10px;
+    border-radius: 6px;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   EXPLORE DESTINATIONS
+========================================= */
+
+#explore > header {
+    display: block;
+}
+
+#explore > header p {
+    margin-top: 8px;
+    color: #667085;
+}
+
+#explore > div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+#explore article {
+    overflow: hidden;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e1e5e4;
+    border-radius: 14px;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#explore article:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+#explore figure {
+    height: 220px;
+    position: relative;
+}
+
+#explore figure img {
+    height: 100%;
+    object-fit: cover;
+}
+
+#explore figure figcaption {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+
+    background-color: rgba(0, 0, 0, 0.65);
+    color: #ffffff;
+
+    padding: 5px 10px;
+    border-radius: 5px;
+
+    font-size: 13px;
+}
+
+#explore article h3 {
+    padding: 18px 18px 5px;
+    font-size: 20px;
+}
+
+#explore article a {
+    display: inline-block;
+
+    margin: 0 18px 20px;
+
+    color: #174a45;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   CALL TO ACTION
+========================================= */
+
+main > section[aria-labelledby="cta-heading"] {
+    text-align: center;
+
+    background-color: #f5f8f7;
+
+    margin-top: 20px;
+}
+
+main > section[aria-labelledby="cta-heading"] header {
+    max-width: 600px;
+    margin: 0 auto 25px;
+}
+
+main > section[aria-labelledby="cta-heading"] p {
+    margin-top: 10px;
+    color: #667085;
+}
+
+main > section[aria-labelledby="cta-heading"] > a {
+    display: inline-block;
+
+    background-color: #174a45;
+    color: #ffffff;
+
+    padding: 12px 24px;
+    border-radius: 8px;
+
+    font-weight: 600;
+}
+
+main > section[aria-labelledby="cta-heading"] > a:hover {
+    background-color: #103a36;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+body > footer {
+    background-color: #17212b;
+    color: #ffffff;
+
+    padding: 50px 24px 25px;
+}
+
+body > footer > div {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+body > footer h2 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+body > footer p {
+    color: #b8c0c8;
+}
+
+body > footer nav ul {
+    display: flex;
+    gap: 25px;
+}
+
+body > footer nav a {
+    color: #d5dbe0;
+}
+
+body > footer nav a:hover {
+    color: #ffffff;
+}
+
+body > footer > p {
+    max-width: 1200px;
+    margin: 35px auto 0;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #34404a;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    body > header nav {
+        gap: 20px;
+    }
+
+    #plan form {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #plan button {
+        width: 100%;
+    }
+
+    #trips > article {
+        grid-template-columns: 1fr;
+    }
+
+    #trips figure {
+        min-height: 280px;
+    }
+
+    #explore > div {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    body > header nav {
+        flex-wrap: wrap;
+        padding: 15px 20px;
+    }
+
+    body > header nav ul {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    body > header nav > div {
+        margin-left: auto;
+    }
+
+    #plan {
+        padding: 60px 18px;
+    }
+
+    #hero-heading {
+        font-size: 38px;
+    }
+
+    #plan > header p {
+        font-size: 17px;
+    }
+
+    #plan form {
+        grid-template-columns: 1fr;
+        padding: 18px;
+    }
+
+    main > section {
+        padding: 55px 18px;
+    }
+
+    #trips > header {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    #trips h2,
+    #explore h2,
+    #cta-heading {
+        font-size: 27px;
+    }
+
+    #trips > article > div {
+        padding: 25px;
+    }
+
+    #explore > div {
+        grid-template-columns: 1fr;
+    }
+
+    body > footer > div {
+        flex-direction: column;
+    }
+
+    body > footer nav ul {
+        flex-direction: column;
+        gap: 12px;
+    }
 }

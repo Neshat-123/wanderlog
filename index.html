@@ -3,41 +3,422 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wanderlog</title>
 
+    <title>Wanderlog - Plan Your Next Adventure</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+    <!-- ================= HEADER ================= -->
     <header>
-        <nav>
-            <a href="#">Wanderlog</a>
 
+        <nav aria-label="Main navigation">
+
+            <!-- Logo / Brand -->
+            <a href="/" aria-label="Wanderlog Home">
+                Wanderlog
+            </a>
+
+            <!-- Navigation Links -->
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Destinations</a></li>
-                <li><a href="#">About</a></li>
+                <li>
+                    <a href="#trips">Trips</a>
+                </li>
+
+                <li>
+                    <a href="#explore">Explore</a>
+                </li>
+
+                <li>
+                    <a href="#plan">Plan</a>
+                </li>
             </ul>
+
+            <!-- Account Actions -->
+            <div>
+                <a href="#login">Log in</a>
+                <a href="#signup">Sign up</a>
+            </div>
+
         </nav>
+
     </header>
 
+
+    <!-- ================= MAIN CONTENT ================= -->
     <main>
 
-        <section>
-            <h1>Wanderlog</h1>
+        <!-- ================= HERO / TRIP PLANNER ================= -->
+        <section id="plan" aria-labelledby="hero-heading">
 
-            <p>
-                Explore places, discover new experiences,
-                and keep track of your journeys.
-            </p>
+            <header>
+                <h1 id="hero-heading">
+                    Plan your next adventure
+                </h1>
 
-            <a href="#">Explore Destinations</a>
+                <p>
+                    Organize your entire trip in one place.
+                </p>
+            </header>
+
+
+            <!-- Trip Search / Planning Form -->
+            <form action="#" method="get">
+
+                <div>
+                    <label for="destination">
+                        Where are you going?
+                    </label>
+
+                    <input
+                        type="text"
+                        id="destination"
+                        name="destination"
+                        placeholder="Enter a destination"
+                    >
+                </div>
+
+
+                <div>
+                    <label for="start-date">
+                        Start date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="start-date"
+                        name="start-date"
+                    >
+                </div>
+
+
+                <div>
+                    <label for="end-date">
+                        End date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="end-date"
+                        name="end-date"
+                    >
+                </div>
+
+
+                <div>
+                    <label for="travelers">
+                        Travelers
+                    </label>
+
+                    <input
+                        type="number"
+                        id="travelers"
+                        name="travelers"
+                        min="1"
+                        value="1"
+                    >
+                </div>
+
+
+                <button type="submit">
+                    Start planning
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- ================= YOUR TRIPS ================= -->
+        <section id="trips" aria-labelledby="trips-heading">
+
+            <header>
+                <h2 id="trips-heading">
+                    Your trips
+                </h2>
+
+                <a href="#create-trip">
+                    Create new trip
+                </a>
+            </header>
+
+
+            <!-- Trip -->
+            <article>
+
+                <figure>
+                    <img src="japan.jpg" alt="Scenic view of Japan">
+
+                    <figcaption>
+                        Japan Adventure
+                    </figcaption>
+                </figure>
+
+
+                <div>
+
+                    <header>
+                        <h3>
+                            Japan Adventure
+                        </h3>
+
+                        <p>
+                            Tokyo → Kyoto → Osaka
+                        </p>
+                    </header>
+
+
+                    <p>
+                        October 12 – October 22
+                    </p>
+
+
+                    <!-- Itinerary -->
+                    <section aria-labelledby="itinerary-heading">
+
+                        <h4 id="itinerary-heading">
+                            Itinerary
+                        </h4>
+
+
+                        <ol>
+
+                            <li>
+                                <article>
+
+                                    <header>
+                                        <h5>
+                                            Day 1 — Tokyo
+                                        </h5>
+                                    </header>
+
+                                    <ul>
+                                        <li>Hotel</li>
+                                        <li>Restaurant</li>
+                                        <li>Sightseeing</li>
+                                    </ul>
+
+                                </article>
+                            </li>
+
+
+                            <li>
+                                <article>
+
+                                    <header>
+                                        <h5>
+                                            Day 2 — Tokyo
+                                        </h5>
+                                    </header>
+
+                                    <ul>
+                                        <li>Temple visit</li>
+                                        <li>Local food</li>
+                                        <li>Shopping</li>
+                                    </ul>
+
+                                </article>
+                            </li>
+
+                        </ol>
+
+                    </section>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ================= EXPLORE DESTINATIONS ================= -->
+        <section id="explore" aria-labelledby="explore-heading">
+
+            <header>
+                <h2 id="explore-heading">
+                    Explore destinations
+                </h2>
+
+                <p>
+                    Discover places for your next adventure.
+                </p>
+            </header>
+
+
+            <!-- Destination Cards -->
+            <div>
+
+                <article>
+
+                    <figure>
+                        <img
+                            src="paris.jpeg"
+                            alt="Eiffel Tower in Paris"
+                        >
+
+                        <figcaption>
+                            Paris
+                        </figcaption>
+                    </figure>
+
+                    <h3>
+                        Explore Paris
+                    </h3>
+
+                    <a href="#paris">
+                        View destination
+                    </a>
+
+                </article>
+
+
+                <article>
+
+                    <figure>
+                        <img
+                            src="bali.jpg"
+                            alt="Beach scenery in Bali"
+                        >
+
+                        <figcaption>
+                            Bali
+                        </figcaption>
+                    </figure>
+
+                    <h3>
+                        Explore Bali
+                    </h3>
+
+                    <a href="#bali">
+                        View destination
+                    </a>
+
+                </article>
+
+
+                <article>
+
+                    <figure>
+                        <img
+                            src="kyoto.webp"
+                            alt="Traditional scenery in Kyoto"
+                        >
+
+                        <figcaption>
+                            Kyoto
+                        </figcaption>
+                    </figure>
+
+                    <h3>
+                        Explore Kyoto
+                    </h3>
+
+                    <a href="#kyoto">
+                        View destination
+                    </a>
+
+                </article>
+
+                <article>
+                    <figure>
+                        <img src="london.jpeg" alt="London city">
+                        <figcaption>London</figcaption>
+                    </figure>
+                    <h3>Explore London</h3>
+                    <a href="#london">View destination</a>
+                </article>
+
+                <article>
+                    <figure>
+                        <img src="dubai.jpeg" alt="Dubai skyline">
+                        <figcaption>Dubai</figcaption>
+                    </figure>
+                    <h3>Explore Dubai</h3>
+                    <a href="#dubai">View destination</a>
+                </article>
+
+                <article>
+                    <figure>
+                        <img src="switzerland.jpeg" alt="Swiss mountains">
+                        <figcaption>Switzerland</figcaption>
+                    </figure>
+                    <h3>Explore Switzerland</h3>
+                    <a href="#switzerland">View destination</a>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CALL TO ACTION ================= -->
+        <section aria-labelledby="cta-heading">
+
+            <header>
+                <h2 id="cta-heading">
+                    Plan smarter. Travel better.
+                </h2>
+
+                <p>
+                    Start organizing your next trip today.
+                </p>
+            </header>
+
+            <a href="#plan">
+                Start planning
+            </a>
+
         </section>
 
     </main>
 
+
+    <!-- ================= FOOTER ================= -->
     <footer>
-        <p>&copy; 2026 Wanderlog</p>
+
+        <div>
+
+            <section aria-labelledby="footer-about">
+                <h2 id="footer-about">
+                    Wanderlog
+                </h2>
+
+                <p>
+                    Your travel planning companion.
+                </p>
+            </section>
+
+
+            <nav aria-label="Footer navigation">
+
+                <ul>
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+
+                    <li>
+                        <a href="#help">Help</a>
+                    </li>
+
+                    <li>
+                        <a href="#privacy">Privacy</a>
+                    </li>
+
+                    <li>
+                        <a href="#terms">Terms</a>
+                    </li>
+                </ul>
+
+            </nav>
+
+        </div>
+
+
+        <p>
+            &copy; 2026 Wanderlog-style Travel Planner
+        </p>
+
     </footer>
 
 </body>
