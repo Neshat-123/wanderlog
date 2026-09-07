@@ -1,7 +1,3 @@
-/* =========================================
-   RESET & GLOBAL STYLES
-========================================= */
-
 * {
     margin: 0;
     padding: 0;
@@ -26,7 +22,8 @@ a {
 
 img {
     display: block;
-    width: 100%;
+    width: 10%;
+    height: auto;
 }
 
 ul,
@@ -35,14 +32,11 @@ ol {
 }
 
 button,
-input {
+input,
+textarea {
     font: inherit;
 }
 
-
-/* =========================================
-   HEADER
-========================================= */
 
 body > header {
     border-bottom: 1px solid #e5e7eb;
@@ -51,66 +45,77 @@ body > header {
 
 body > header nav {
     max-width: 1200px;
-    margin: 0 auto;
     min-height: 72px;
+    margin: 0 auto;
+    padding: 0 24px;
 
     display: flex;
     align-items: center;
     gap: 40px;
-
-    padding: 0 24px;
 }
 
-body > header nav > a:first-child {
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
     font-size: 26px;
     font-weight: 700;
     color: #174a45;
 }
 
-body > header nav ul {
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+
+    font-size: 20px;
+}
+
+.main-nav {
     display: flex;
     gap: 30px;
     margin-right: auto;
 }
 
-body > header nav ul a {
+.main-nav a {
     color: #4b5563;
     font-weight: 500;
 }
 
-body > header nav ul a:hover {
+.main-nav a:hover {
     color: #174a45;
 }
 
-body > header nav > div {
+.account-actions {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-body > header nav > div a:first-child {
+.account-actions a:first-child {
     color: #374151;
     font-weight: 500;
 }
 
-body > header nav > div a:last-child {
-    background-color: #174a45;
-    color: white;
-
+.account-actions a:last-child {
     padding: 10px 20px;
-    border-radius: 8px;
 
+    background-color: #174a45;
+    color: #ffffff;
+
+    border-radius: 8px;
     font-weight: 600;
 }
 
-body > header nav > div a:last-child:hover {
+.account-actions a:last-child:hover {
     background-color: #103a36;
 }
 
 
-/* =========================================
-   MAIN
-========================================= */
 
 main {
     max-width: 1200px;
@@ -122,17 +127,14 @@ main > section {
 }
 
 
-/* =========================================
-   HERO SECTION
-========================================= */
 
 #plan {
+    max-width: none;
+    margin-top: 0;
+    padding: 90px 24px;
+
     text-align: center;
     background-color: #f5f8f7;
-
-    margin-top: 0;
-    max-width: none;
-    padding: 90px 24px;
 }
 
 #plan > header {
@@ -141,9 +143,11 @@ main > section {
 }
 
 #hero-heading {
+    margin-bottom: 18px;
+
     font-size: 52px;
     line-height: 1.15;
-    margin-bottom: 18px;
+
     color: #17212b;
 }
 
@@ -153,18 +157,10 @@ main > section {
 }
 
 
-/* =========================================
-   PLANNER FORM
-========================================= */
 
-#plan form {
+#planner-form {
     max-width: 1000px;
     margin: 0 auto;
-
-    background-color: #ffffff;
-    border: 1px solid #e1e5e4;
-    border-radius: 16px;
-
     padding: 22px;
 
     display: grid;
@@ -173,27 +169,31 @@ main > section {
 
     text-align: left;
 
+    background-color: #ffffff;
+    border: 1px solid #e1e5e4;
+    border-radius: 16px;
+
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
 }
 
-#plan form > div {
+#planner-form > div {
     display: flex;
     flex-direction: column;
     gap: 7px;
 }
 
-#plan label {
+#planner-form label {
     font-size: 13px;
     font-weight: 600;
     color: #4b5563;
 }
 
-#plan input {
+#planner-form input {
     width: 100%;
+    padding: 12px 13px;
+
     border: 1px solid #d1d5db;
     border-radius: 8px;
-
-    padding: 12px 13px;
 
     background-color: #ffffff;
     color: #17212b;
@@ -201,17 +201,17 @@ main > section {
     outline: none;
 }
 
-#plan input:focus {
+#planner-form input:focus {
     border-color: #174a45;
 }
 
-#plan button {
+#planner-form button {
     align-self: end;
+
+    padding: 12px 20px;
 
     border: none;
     border-radius: 8px;
-
-    padding: 12px 20px;
 
     background-color: #174a45;
     color: #ffffff;
@@ -220,17 +220,13 @@ main > section {
     cursor: pointer;
 }
 
-#plan button:hover {
+#planner-form button:hover {
     background-color: #103a36;
 }
 
 
-/* =========================================
-   SECTION HEADERS
-========================================= */
 
-#trips > header,
-#explore > header {
+.section-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -238,24 +234,32 @@ main > section {
     margin-bottom: 35px;
 }
 
-#trips h2,
-#explore h2,
+.section-header h2,
+.explore-header h2,
 #cta-heading {
     font-size: 32px;
     line-height: 1.2;
 }
 
-#trips > header a {
+.create-trip-button {
+    border: none;
+    background: none;
+
     color: #174a45;
+
+    font-size: 16px;
     font-weight: 600;
+
+    cursor: pointer;
+}
+
+.create-trip-button:hover {
+    text-decoration: underline;
 }
 
 
-/* =========================================
-   YOUR TRIP CARD
-========================================= */
 
-#trips > article {
+.trip-card {
     display: grid;
     grid-template-columns: 40% 60%;
 
@@ -269,117 +273,112 @@ main > section {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
 
-#trips figure {
+.trip-card figure {
+    position: relative;
+
     height: 100%;
     min-height: 350px;
-    position: relative;
 }
 
-#trips figure img {
+.trip-card figure img {
+    width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-#trips figure figcaption {
+.trip-card figure figcaption {
     position: absolute;
-    bottom: 18px;
     left: 18px;
+    bottom: 18px;
+
+    padding: 7px 12px;
 
     background-color: rgba(0, 0, 0, 0.65);
     color: #ffffff;
 
-    padding: 7px 12px;
     border-radius: 6px;
 
     font-size: 14px;
 }
 
-
-/* Trip information */
-
-#trips > article > div {
+.trip-information {
     padding: 35px;
 }
 
-#trips h3 {
-    font-size: 26px;
+.trip-information h3 {
     margin-bottom: 5px;
+    font-size: 26px;
 }
 
-#trips > article > div > header p {
+.trip-information header p {
     color: #667085;
 }
 
-#trips > article > div > p {
+.trip-date {
     margin-top: 15px;
     color: #4b5563;
 }
 
 
-/* =========================================
-   ITINERARY
-========================================= */
 
-#trips section {
+.itinerary {
     margin-top: 30px;
 }
 
-#trips h4 {
+.itinerary h4 {
+    margin-bottom: 20px;
     font-size: 20px;
-    margin-bottom: 20px;
 }
 
-#trips ol {
-    border-left: 2px solid #dce5e2;
+.itinerary ol {
     padding-left: 25px;
+    border-left: 2px solid #dce5e2;
 }
 
-#trips ol > li {
+.itinerary ol > li {
     margin-bottom: 20px;
 }
 
-#trips h5 {
-    font-size: 16px;
+.itinerary h5 {
     margin-bottom: 10px;
+    font-size: 16px;
 }
 
-#trips ol ul {
+.itinerary ul {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
 }
 
-#trips ol ul li {
+.itinerary ul li {
+    padding: 6px 10px;
+
     background-color: #eef5f3;
     color: #174a45;
 
-    padding: 6px 10px;
     border-radius: 6px;
 
     font-size: 13px;
 }
 
 
-/* =========================================
-   EXPLORE DESTINATIONS
-========================================= */
 
-#explore > header {
-    display: block;
+.explore-header {
+    margin-bottom: 35px;
 }
 
-#explore > header p {
+.explore-header p {
     margin-top: 8px;
     color: #667085;
 }
 
-#explore > div {
+.destination-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
-#explore article {
+.destination-card {
     overflow: hidden;
 
     background-color: #ffffff;
@@ -390,42 +389,44 @@ main > section {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-#explore article:hover {
+.destination-card:hover {
     transform: translateY(-5px);
 
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
-#explore figure {
-    height: 220px;
+.destination-card figure {
     position: relative;
+    height: 220px;
 }
 
-#explore figure img {
+.destination-card figure img {
+    width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-#explore figure figcaption {
+.destination-card figure figcaption {
     position: absolute;
-    bottom: 12px;
     left: 12px;
+    bottom: 12px;
+
+    padding: 5px 10px;
 
     background-color: rgba(0, 0, 0, 0.65);
     color: #ffffff;
 
-    padding: 5px 10px;
     border-radius: 5px;
 
     font-size: 13px;
 }
 
-#explore article h3 {
+.destination-card h3 {
     padding: 18px 18px 5px;
     font-size: 20px;
 }
 
-#explore article a {
+.destination-card a {
     display: inline-block;
 
     margin: 0 18px 20px;
@@ -435,57 +436,182 @@ main > section {
 }
 
 
-/* =========================================
-   CALL TO ACTION
-========================================= */
+.call-to-action {
+    margin-top: 20px;
 
-main > section[aria-labelledby="cta-heading"] {
     text-align: center;
 
     background-color: #f5f8f7;
-
-    margin-top: 20px;
 }
 
-main > section[aria-labelledby="cta-heading"] header {
+.call-to-action header {
     max-width: 600px;
     margin: 0 auto 25px;
 }
 
-main > section[aria-labelledby="cta-heading"] p {
+.call-to-action p {
     margin-top: 10px;
     color: #667085;
 }
 
-main > section[aria-labelledby="cta-heading"] > a {
+.call-to-action > a {
     display: inline-block;
+
+    padding: 12px 24px;
 
     background-color: #174a45;
     color: #ffffff;
 
-    padding: 12px 24px;
     border-radius: 8px;
 
     font-weight: 600;
 }
 
-main > section[aria-labelledby="cta-heading"] > a:hover {
+.call-to-action > a:hover {
     background-color: #103a36;
 }
 
 
-/* =========================================
-   FOOTER
-========================================= */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
 
-body > footer {
-    background-color: #17212b;
-    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    padding: 50px 24px 25px;
+    padding: 20px;
+
+    background-color: rgba(0, 0, 0, 0.55);
 }
 
-body > footer > div {
+.modal[hidden] {
+    display: none;
+}
+
+.modal-content {
+    position: relative;
+
+    width: 100%;
+    max-width: 700px;
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 35px;
+
+    background-color: #ffffff;
+
+    border-radius: 18px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content header {
+    margin-bottom: 25px;
+}
+
+.modal-content h2 {
+    font-size: 30px;
+}
+
+.modal-content header p {
+    margin-top: 6px;
+    color: #667085;
+}
+
+.close-button {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+
+    border: none;
+    background: none;
+
+    font-size: 30px;
+    color: #667085;
+
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: #17212b;
+}
+
+#trip-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+#trip-form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+#trip-form > div:nth-child(6) {
+    grid-column: 1 / -1;
+}
+
+#trip-form label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+#trip-form input,
+#trip-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    background-color: #ffffff;
+
+    outline: none;
+}
+
+#trip-form input:focus,
+#trip-form textarea:focus {
+    border-color: #174a45;
+}
+
+#trip-form textarea {
+    resize: vertical;
+}
+
+#trip-form > button {
+    grid-column: 1 / -1;
+
+    padding: 13px 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #174a45;
+    color: #ffffff;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+#trip-form > button:hover {
+    background-color: #103a36;
+}
+
+
+body > footer {
+    padding: 50px 24px 25px;
+
+    background-color: #17212b;
+    color: #ffffff;
+}
+
+.footer-content {
     max-width: 1200px;
     margin: 0 auto;
 
@@ -495,8 +621,8 @@ body > footer > div {
 }
 
 body > footer h2 {
-    font-size: 22px;
     margin-bottom: 8px;
+    font-size: 22px;
 }
 
 body > footer p {
@@ -516,7 +642,7 @@ body > footer nav a:hover {
     color: #ffffff;
 }
 
-body > footer > p {
+.copyright {
     max-width: 1200px;
     margin: 35px auto 0;
 
@@ -528,9 +654,6 @@ body > footer > p {
 }
 
 
-/* =========================================
-   TABLET
-========================================= */
 
 @media (max-width: 900px) {
 
@@ -538,31 +661,28 @@ body > footer > p {
         gap: 20px;
     }
 
-    #plan form {
+    #planner-form {
         grid-template-columns: 1fr 1fr;
     }
 
-    #plan button {
+    #planner-form button {
         width: 100%;
     }
 
-    #trips > article {
+    .trip-card {
         grid-template-columns: 1fr;
     }
 
-    #trips figure {
+    .trip-card figure {
         min-height: 280px;
     }
 
-    #explore > div {
+    .destination-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 
-/* =========================================
-   MOBILE
-========================================= */
 
 @media (max-width: 600px) {
 
@@ -571,14 +691,17 @@ body > footer > p {
         padding: 15px 20px;
     }
 
-    body > header nav ul {
+    .main-nav {
         order: 3;
+
         width: 100%;
+
         justify-content: center;
+
         gap: 20px;
     }
 
-    body > header nav > div {
+    .account-actions {
         margin-left: auto;
     }
 
@@ -594,7 +717,7 @@ body > footer > p {
         font-size: 17px;
     }
 
-    #plan form {
+    #planner-form {
         grid-template-columns: 1fr;
         padding: 18px;
     }
@@ -603,31 +726,48 @@ body > footer > p {
         padding: 55px 18px;
     }
 
-    #trips > header {
+    .section-header {
         align-items: flex-start;
         gap: 15px;
     }
 
-    #trips h2,
-    #explore h2,
+    .section-header h2,
+    .explore-header h2,
     #cta-heading {
         font-size: 27px;
     }
 
-    #trips > article > div {
+    .trip-information {
         padding: 25px;
     }
 
-    #explore > div {
+    .destination-grid {
         grid-template-columns: 1fr;
     }
 
-    body > footer > div {
+    .footer-content {
         flex-direction: column;
     }
 
     body > footer nav ul {
         flex-direction: column;
         gap: 12px;
+    }
+
+    #trip-form {
+        grid-template-columns: 1fr;
+    }
+
+    #trip-form > div:nth-child(6) {
+        grid-column: auto;
+    }
+
+    #trip-form > button {
+        grid-column: auto;
+        width: 100%;
+    }
+
+    .modal-content {
+        padding: 28px 20px;
     }
 }

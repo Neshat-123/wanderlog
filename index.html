@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Wanderlog - Plan Your Next Adventure</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- ================= HEADER ================= -->
     <header>
-
         <nav aria-label="Main navigation">
 
-            <!-- Logo / Brand -->
-            <a href="/" aria-label="Wanderlog Home">
-                Wanderlog
+            <a href="/" class="logo" aria-label="Wanderlog Home">
+                <img src="images.jpeg" alt="">
+                <span>Wanderlog</span>
             </a>
 
-            <!-- Navigation Links -->
-            <ul>
+            <ul class="main-nav">
                 <li>
                     <a href="#trips">Trips</a>
                 </li>
@@ -35,21 +34,17 @@
                 </li>
             </ul>
 
-            <!-- Account Actions -->
-            <div>
+            <div class="account-actions">
                 <a href="#login">Log in</a>
                 <a href="#signup">Sign up</a>
             </div>
 
         </nav>
-
     </header>
 
 
-    <!-- ================= MAIN CONTENT ================= -->
     <main>
 
-        <!-- ================= HERO / TRIP PLANNER ================= -->
         <section id="plan" aria-labelledby="hero-heading">
 
             <header>
@@ -62,9 +57,7 @@
                 </p>
             </header>
 
-
-            <!-- Trip Search / Planning Form -->
-            <form action="#" method="get">
+            <form id="planner-form">
 
                 <div>
                     <label for="destination">
@@ -79,7 +72,6 @@
                     >
                 </div>
 
-
                 <div>
                     <label for="start-date">
                         Start date
@@ -92,7 +84,6 @@
                     >
                 </div>
 
-
                 <div>
                     <label for="end-date">
                         End date
@@ -104,7 +95,6 @@
                         name="end-date"
                     >
                 </div>
-
 
                 <div>
                     <label for="travelers">
@@ -120,7 +110,6 @@
                     >
                 </div>
 
-
                 <button type="submit">
                     Start planning
                 </button>
@@ -130,33 +119,39 @@
         </section>
 
 
-        <!-- ================= YOUR TRIPS ================= -->
         <section id="trips" aria-labelledby="trips-heading">
 
-            <header>
+            <header class="section-header">
+
                 <h2 id="trips-heading">
                     Your trips
                 </h2>
 
-                <a href="#create-trip">
-                    Create new trip
-                </a>
+                <button
+                    type="button"
+                    id="open-trip-form"
+                    class="create-trip-button"
+                >
+                    + Create new trip
+                </button>
+
             </header>
 
 
-            <!-- Trip -->
-            <article>
+            <article class="trip-card">
 
                 <figure>
-                    <img src="japan.jpg" alt="Scenic view of Japan">
+                    <img
+                        src="japan.jpg"
+                        alt="Scenic view of Japan"
+                    >
 
                     <figcaption>
                         Japan Adventure
                     </figcaption>
                 </figure>
 
-
-                <div>
+                <div class="trip-information">
 
                     <header>
                         <h3>
@@ -168,30 +163,27 @@
                         </p>
                     </header>
 
-
-                    <p>
+                    <p class="trip-date">
                         October 12 – October 22
                     </p>
 
-
-                    <!-- Itinerary -->
-                    <section aria-labelledby="itinerary-heading">
+                    <section
+                        class="itinerary"
+                        aria-labelledby="itinerary-heading"
+                    >
 
                         <h4 id="itinerary-heading">
                             Itinerary
                         </h4>
-
 
                         <ol>
 
                             <li>
                                 <article>
 
-                                    <header>
-                                        <h5>
-                                            Day 1 — Tokyo
-                                        </h5>
-                                    </header>
+                                    <h5>
+                                        Day 1 — Tokyo
+                                    </h5>
 
                                     <ul>
                                         <li>Hotel</li>
@@ -202,15 +194,12 @@
                                 </article>
                             </li>
 
-
                             <li>
                                 <article>
 
-                                    <header>
-                                        <h5>
-                                            Day 2 — Tokyo
-                                        </h5>
-                                    </header>
+                                    <h5>
+                                        Day 2 — Tokyo
+                                    </h5>
 
                                     <ul>
                                         <li>Temple visit</li>
@@ -232,10 +221,10 @@
         </section>
 
 
-        <!-- ================= EXPLORE DESTINATIONS ================= -->
         <section id="explore" aria-labelledby="explore-heading">
 
-            <header>
+            <header class="explore-header">
+
                 <h2 id="explore-heading">
                     Explore destinations
                 </h2>
@@ -243,13 +232,13 @@
                 <p>
                     Discover places for your next adventure.
                 </p>
+
             </header>
 
 
-            <!-- Destination Cards -->
-            <div>
+            <div class="destination-grid">
 
-                <article>
+                <article class="destination-card">
 
                     <figure>
                         <img
@@ -273,7 +262,7 @@
                 </article>
 
 
-                <article>
+                <article class="destination-card">
 
                     <figure>
                         <img
@@ -297,7 +286,7 @@
                 </article>
 
 
-                <article>
+                <article class="destination-card">
 
                     <figure>
                         <img
@@ -320,31 +309,77 @@
 
                 </article>
 
-                <article>
+
+                <article class="destination-card">
+
                     <figure>
-                        <img src="london.jpeg" alt="London city">
-                        <figcaption>London</figcaption>
+                        <img
+                            src="london.jpeg"
+                            alt="London city"
+                        >
+
+                        <figcaption>
+                            London
+                        </figcaption>
                     </figure>
-                    <h3>Explore London</h3>
-                    <a href="#london">View destination</a>
+
+                    <h3>
+                        Explore London
+                    </h3>
+
+                    <a href="#london">
+                        View destination
+                    </a>
+
                 </article>
 
-                <article>
+
+                <article class="destination-card">
+
                     <figure>
-                        <img src="dubai.jpeg" alt="Dubai skyline">
-                        <figcaption>Dubai</figcaption>
+                        <img
+                            src="dubai.jpeg"
+                            alt="Dubai skyline"
+                        >
+
+                        <figcaption>
+                            Dubai
+                        </figcaption>
                     </figure>
-                    <h3>Explore Dubai</h3>
-                    <a href="#dubai">View destination</a>
+
+                    <h3>
+                        Explore Dubai
+                    </h3>
+
+                    <a href="#dubai">
+                        View destination
+                    </a>
+
                 </article>
 
-                <article>
+
+                <article class="destination-card">
+
                     <figure>
-                        <img src="switzerland.jpeg" alt="Swiss mountains">
-                        <figcaption>Switzerland</figcaption>
+                        <img
+                            src="switzerland.jpeg"
+                            alt="Swiss mountains"
+                        >
+
+                        <figcaption>
+                            Switzerland
+                        </figcaption>
+
                     </figure>
-                    <h3>Explore Switzerland</h3>
-                    <a href="#switzerland">View destination</a>
+
+                    <h3>
+                        Explore Switzerland
+                    </h3>
+
+                    <a href="#switzerland">
+                        View destination
+                    </a>
+
                 </article>
 
             </div>
@@ -352,10 +387,13 @@
         </section>
 
 
-        <!-- ================= CALL TO ACTION ================= -->
-        <section aria-labelledby="cta-heading">
+        <section
+            class="call-to-action"
+            aria-labelledby="cta-heading"
+        >
 
             <header>
+
                 <h2 id="cta-heading">
                     Plan smarter. Travel better.
                 </h2>
@@ -363,6 +401,7 @@
                 <p>
                     Start organizing your next trip today.
                 </p>
+
             </header>
 
             <a href="#plan">
@@ -371,22 +410,156 @@
 
         </section>
 
+
+        <section
+            id="trip-modal"
+            class="modal"
+            aria-labelledby="create-trip-heading"
+            hidden
+        >
+
+            <div class="modal-content">
+
+                <button
+                    type="button"
+                    id="close-trip-form"
+                    class="close-button"
+                    aria-label="Close"
+                >
+                    &times;
+                </button>
+
+
+                <header>
+
+                    <h2 id="create-trip-heading">
+                        Create a new trip
+                    </h2>
+
+                    <p>
+                        Add your trip details and start planning your adventure.
+                    </p>
+
+                </header>
+
+
+                <form id="trip-form">
+
+                    <div>
+                        <label for="trip-name">
+                            Trip name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="trip-name"
+                            name="trip-name"
+                            placeholder="e.g. Japan Adventure"
+                            required
+                        >
+                    </div>
+
+
+                    <div>
+                        <label for="trip-destination">
+                            Destination
+                        </label>
+
+                        <input
+                            type="text"
+                            id="trip-destination"
+                            name="trip-destination"
+                            placeholder="e.g. Tokyo, Japan"
+                            required
+                        >
+                    </div>
+
+
+                    <div>
+                        <label for="trip-start">
+                            Start date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="trip-start"
+                            name="trip-start"
+                            required
+                        >
+                    </div>
+
+
+                    <div>
+                        <label for="trip-end">
+                            End date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="trip-end"
+                            name="trip-end"
+                            required
+                        >
+                    </div>
+
+
+                    <div>
+                        <label for="trip-travelers">
+                            Number of travelers
+                        </label>
+
+                        <input
+                            type="number"
+                            id="trip-travelers"
+                            name="trip-travelers"
+                            min="1"
+                            value="1"
+                            required
+                        >
+                    </div>
+
+
+                    <div>
+                        <label for="trip-details">
+                            Trip details
+                        </label>
+
+                        <textarea
+                            id="trip-details"
+                            name="trip-details"
+                            rows="5"
+                            placeholder="Add hotels, places to visit, restaurants, activities..."
+                        ></textarea>
+                    </div>
+
+
+                    <button type="submit">
+                        Create trip
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
     </main>
 
 
-    <!-- ================= FOOTER ================= -->
     <footer>
 
-        <div>
+        <div class="footer-content">
 
-            <section aria-labelledby="footer-about">
-                <h2 id="footer-about">
+            <section>
+
+                <h2>
                     Wanderlog
                 </h2>
 
                 <p>
                     Your travel planning companion.
                 </p>
+
             </section>
 
 
@@ -415,11 +588,15 @@
         </div>
 
 
-        <p>
+        <p class="copyright">
             &copy; 2026 Wanderlog-style Travel Planner
         </p>
 
     </footer>
 
+
+    <script src="script.js"></script>
+
 </body>
+
 </html>
