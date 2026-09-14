@@ -1,4 +1,4 @@
-# Wanderlog
+# Week 1 - Wanderlog
 
 Wanderlog travel journal homepage created as part of the CodGen Week 1 Frontend Internship.
 
@@ -26,6 +26,16 @@ A responsive travel journal homepage designed to help users plan trips and explo
 - CSS Grid
 - Responsive Design
 
-## Internship
 
-CodGen Frontend Internship — Week 1
+## Week 2 – CRUD Functionality
+
+Implemented full CRUD functionality for trip entries using JavaScript and localStorage.
+
+### Features
+- Create new trips
+- View saved trips
+- Edit existing trips
+- Delete trips
+- localStorage persistence
+- Date validation
+- Dynamic destination images
