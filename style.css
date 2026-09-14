@@ -771,3 +771,40 @@ body > footer nav a:hover {
         padding: 28px 20px;
     }
 }
+
+#trip-list {
+    display: grid;
+    gap: 24px;
+}
+
+#empty-state {
+    padding: 40px 20px;
+    text-align: center;
+    color: #667085;
+    background-color: #f5f8f7;
+    border: 1px dashed #cbd5d1;
+    border-radius: 14px;
+}
+
+.trip-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.trip-actions button {
+    padding: 9px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    background-color: #ffffff;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.trip-actions button:hover {
+    background-color: #f5f8f7;
+}
+
+.delete-trip {
+    color: #b42318;
+}
