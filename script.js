@@ -8,7 +8,36 @@ const emptyState = document.getElementById("empty-state");
 const tripModal = document.getElementById("trip-modal");
 const openTripForm = document.getElementById("open-trip-form");
 const closeTripForm = document.getElementById("close-trip-form");
+const tripPhoto = document.getElementById("trip-photo");
+const photoPreview = document.getElementById("photo-preview");
+
 let editingTripId = null;
+
+tripPhoto.addEventListener("change", function () {
+    const file = this.files[0];
+
+    if (!file) {
+        photoPreview.hidden = true;
+        photoPreview.src = "";
+        return;
+    }
+
+    if (!file.type.startsWith("image/")) {
+        alert("Please select an image file.");
+        this.value = "";
+        photoPreview.hidden = true;
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.addEventListener("load", function () {
+        photoPreview.src = reader.result;
+        photoPreview.hidden = false;
+    });
+
+    reader.readAsDataURL(file);
+});
 
 function saveTrips() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(trips));
@@ -77,7 +106,12 @@ function renderTrips() {
 
         article.innerHTML = `
             <figure>
-                ${trip.image ? `<img src="${trip.image}" alt="${trip.destination}">` : ""}
+                ${
+                    trip.image
+                        ? `<img src="${trip.image}" alt="${trip.destination}">`
+                        : `<div class="trip-image-placeholder">No photo</div>`
+                }
+
                 <figcaption>${trip.title}</figcaption>
             </figure>
 
@@ -127,9 +161,9 @@ function renderTrips() {
             saveTrips();
             renderTrips();
         });
-        
+
         const editButton = article.querySelector(".edit-trip");
- 
+
         editButton.addEventListener("click", function () {
             const tripId = Number(this.dataset.id);
 
@@ -149,6 +183,16 @@ function renderTrips() {
             document.getElementById("trip-end").value = trip.endDate;
             document.getElementById("trip-travelers").value = trip.travelers;
             document.getElementById("trip-details").value = trip.details;
+
+            tripPhoto.value = "";
+
+            if (trip.image && trip.image.startsWith("data:image")) {
+                photoPreview.src = trip.image;
+                photoPreview.hidden = false;
+            } else {
+                photoPreview.src = "";
+                photoPreview.hidden = true;
+            }
 
             tripForm.querySelector("button[type='submit']").textContent = "Save changes";
 
@@ -190,55 +234,79 @@ tripForm.addEventListener("submit", function (event) {
     const endDate = document.getElementById("trip-end").value;
     const travelers = document.getElementById("trip-travelers").value;
     const details = document.getElementById("trip-details").value.trim();
+    const file = tripPhoto.files[0];
 
     if (new Date(endDate) < new Date(startDate)) {
         alert("End date cannot be before start date.");
         return;
     }
 
-    if (editingTripId !== null) {
-        trips = trips.map(function (trip) {
-            if (trip.id === editingTripId) {
-                return {
-                    ...trip,
-                    title: title,
-                    destination: destination,
-                    startDate: startDate,
-                    endDate: endDate,
-                    travelers: Number(travelers),
-                    details: details,
-                    image: getTripImage(destination)
-                };
-            }
+    function saveTrip(image) {
+        if (editingTripId !== null) {
+            trips = trips.map(function (trip) {
+                if (trip.id === editingTripId) {
+                    return {
+                        ...trip,
+                        title: title,
+                        destination: destination,
+                        startDate: startDate,
+                        endDate: endDate,
+                        travelers: Number(travelers),
+                        details: details,
+                        image: image
+                    };
+                }
 
-            return trip;
-        });
-    } else {
-        const newTrip = {
-            id: Date.now(),
-            title: title,
-            destination: destination,
-            startDate: startDate,
-            endDate: endDate,
-            travelers: Number(travelers),
-            details: details,
-            image: getTripImage(destination)
-        };
+                return trip;
+            });
+        } else {
+            const newTrip = {
+                id: Date.now(),
+                title: title,
+                destination: destination,
+                startDate: startDate,
+                endDate: endDate,
+                travelers: Number(travelers),
+                details: details,
+                image: image
+            };
 
-        trips.push(newTrip);
+            trips.push(newTrip);
+        }
+
+        saveTrips();
+        renderTrips();
+
+        tripForm.reset();
+        document.getElementById("trip-travelers").value = 1;
+
+        photoPreview.hidden = true;
+        photoPreview.src = "";
+
+        editingTripId = null;
+
+        tripForm.querySelector("button[type='submit']").textContent = "Create trip";
+
+        tripModal.hidden = true;
     }
 
-    saveTrips();
-    renderTrips();
+    if (file) {
+        const reader = new FileReader();
 
-    tripForm.reset();
-    document.getElementById("trip-travelers").value = 1;
+        reader.addEventListener("load", function () {
+            saveTrip(reader.result);
+        });
 
-    editingTripId = null;
+        reader.readAsDataURL(file);
+    } else if (editingTripId !== null) {
+        const existingTrip = trips.find(function (trip) {
+            return trip.id === editingTripId;
+        });
 
-    tripForm.querySelector("button[type='submit']").textContent = "Create trip";
-
-    tripModal.hidden = true;
+        saveTrip(existingTrip ? existingTrip.image : getTripImage(destination));
+    } else {
+        saveTrip(getTripImage(destination));
+    }
 });
 
 renderTrips();

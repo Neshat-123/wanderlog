@@ -456,8 +456,27 @@
                             placeholder="Add hotels, places to visit, restaurants, activities..."
                         ></textarea>
                     </div>
+                    
+                    <div>
+                        <label for="trip-photo">
+                            Trip cover photo
+                        </label>
 
+                        <input 
+                            type="file" 
+                            id="trip-photo" 
+                            name="trip-photo" 
+                            accept="image/*"
+                        >
 
+                        <img 
+                            id="photo-preview" 
+                            src="" 
+                            alt="Trip photo preview"
+                            hidden
+                        >
+</div>
+                    
                     <button type="submit">
                         Create trip
                     </button>

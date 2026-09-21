@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wanderlog - Public Profile</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav aria-label="Main navigation">
+
+            <a href="index.html" class="logo">
+                <span>Wanderlog</span>
+            </a>
+
+            <ul class="main-nav">
+                <li>
+                    <a href="index.html#trips">Trips</a>
+                </li>
+
+                <li>
+                    <a href="index.html#explore">Explore</a>
+                </li>
+
+                <li>
+                    <a href="index.html#plan">Plan</a>
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <section class="profile-page">
+
+            <header class="profile-header">
+
+                <h1 id="profile-name">
+                    Traveler
+                </h1>
+
+                <p id="profile-bio">
+                    Exploring the world one trip at a time.
+                </p>
+
+            </header>
+
+
+            <section aria-labelledby="profile-trips-heading">
+
+                <header class="section-header">
+
+                    <h2 id="profile-trips-heading">
+                        Trips
+                    </h2>
+
+                </header>
+
+                <div id="profile-trips"></div>
+
+                <p id="profile-empty" hidden>
+                    This traveler has no trips yet.
+                </p>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div class="footer-content">
+
+            <section>
+
+                <h2>
+                    Wanderlog
+                </h2>
+
+                <p>
+                    Your travel planning companion.
+                </p>
+
+            </section>
+
+        </div>
+
+        <p class="copyright">
+            &copy; 2026 Wanderlog-style Travel Planner
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        const STORAGE_KEY = "wanderlogTrips";
+
+        const savedTrips = localStorage.getItem("wanderlogTrips");
+
+        const trips = savedTrips ? JSON.parse(savedTrips) : [];
+
+        console.log("Trips found:", trips);
+
+        const profileName =
+            document.getElementById("profile-name");
+
+        const profileBio =
+            document.getElementById("profile-bio");
+
+        const profileTrips =
+            document.getElementById("profile-trips");
+
+        const profileEmpty =
+            document.getElementById("profile-empty");
+
+
+        const params =
+            new URLSearchParams(window.location.search);
+
+        const username =
+            params.get("user") || "traveler";
+
+
+        profileName.textContent = username;
+
+        profileBio.textContent =
+            "Exploring the world one trip at a time.";
+
+
+        function formatDate(date) {
+
+            if (!date) {
+                return "No date";
+            }
+
+            return new Date(date + "T00:00:00")
+                .toLocaleDateString("en-US", {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric"
+                });
+        }
+
+
+        if (trips.length === 0) {
+
+            profileEmpty.hidden = false;
+
+        } else {
+
+            trips.forEach(function (trip) {
+
+                const article =
+                    document.createElement("article");
+
+                article.className = "trip-card";
+
+
+                article.innerHTML = `
+
+                    <figure>
+
+                        ${
+                            trip.image
+
+                            ? `
+                            <img
+                                src="${trip.image}"
+                                alt="${trip.destination}"
+                            >
+                            `
+
+                            : `
+                            <div class="trip-image-placeholder">
+                                No photos
+                            </div>
+                            `
+                        }
+
+                        <figcaption>
+                            ${trip.title}
+                        </figcaption>
+
+                    </figure>
+
+
+                    <div class="trip-information">
+
+                        <header>
+
+                            <h3>
+                                ${trip.title}
+                            </h3>
+
+                            <p>
+                                ${trip.destination}
+                            </p>
+
+                        </header>
+
+
+                        <p class="trip-date">
+
+                            ${formatDate(trip.startDate)}
+                            –
+                            ${formatDate(trip.endDate)}
+
+                        </p>
+
+
+                        <section class="itinerary">
+
+                            <h4>
+                                Trip details
+                            </h4>
+
+                            <p>
+                                ${trip.details || "No trip details added."}
+                            </p>
+
+                            <p>
+                                Travelers: ${trip.travelers}
+                            </p>
+
+                        </section>
+
+                    </div>
+
+                `;
+
+
+                profileTrips.appendChild(article);
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
