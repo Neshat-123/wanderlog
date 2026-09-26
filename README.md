@@ -146,10 +146,11 @@ Basic accessibility improvements include:
 The final Wanderlog project is deployed online.
 
 **Live Demo:**
-*Add your live deployment URL here.*
+https://neshat-123.github.io/wanderlog/
 
 **GitHub Repository:**
 https://github.com/Neshat-123/wanderlog
+
 ## Internship
 
 This project was completed as part of the:
